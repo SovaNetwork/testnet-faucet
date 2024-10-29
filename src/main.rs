@@ -74,6 +74,7 @@ struct AppState {
     gas_limit: U256,
 }
 
+/// Balance of the address receiving tokens must be zero. Balance of the sender must be greater than the tokens requested.
 async fn send_tokens(data: web::Json<FaucetRequest>, state: web::Data<AppState>) -> impl Responder {
     let to_address = match Address::parse_checksummed(&data.address, None) {
         Ok(addr) => addr,
@@ -84,8 +85,37 @@ async fn send_tokens(data: web::Json<FaucetRequest>, state: web::Data<AppState>)
         }
     };
 
-    // Get the wallet address
+    // Get the wallet address from state
     let from_address = state.wallet.default_signer().address();
+
+    // Balance validations
+    let sender_balance = match state.provider.get_balance(from_address).await {
+        Ok(b) => b,
+        Err(e) => {
+            return HttpResponse::InternalServerError().json(ErrorResponse {
+                error: format!("Failed to get balance: {}", e),
+            })
+        }
+    };
+    if sender_balance < state.tokens_per_request {
+        return HttpResponse::BadRequest().json(ErrorResponse {
+            error: "Insufficient balance".to_string(),
+        });
+    }
+
+    let receiver_balance = match state.provider.get_balance(to_address).await {
+        Ok(b) => b,
+        Err(e) => {
+            return HttpResponse::InternalServerError().json(ErrorResponse {
+                error: format!("Failed to get balance: {}", e),
+            })
+        }
+    };
+    if receiver_balance > U256::ZERO {
+        return HttpResponse::BadRequest().json(ErrorResponse {
+            error: "Receiver already has a balance greater than 0".to_string(),
+        });
+    }
 
     // Get the next nonce for the wallet
     let nonce = match state.provider.get_transaction_count(from_address).await {

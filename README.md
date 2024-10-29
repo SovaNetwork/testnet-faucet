@@ -6,6 +6,8 @@ A lightweight HTTP service that distributes testnet tokens from a pre-funded wal
 
 This service provides a simple HTTP endpoint that allows users to request testnet tokens. It uses a pre-funded wallet to send tokens to requested addresses, making it perfect for testnet and development environments.
 
+The address requesting funds must have a balance of zero else it will be denied the request.
+
 ## Prerequisites
 
 - Rust 1.81 or later
