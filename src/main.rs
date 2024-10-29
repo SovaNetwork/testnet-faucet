@@ -162,8 +162,11 @@ async fn main() -> Result<()> {
     // Initialize logging
     tracing_subscriber::fmt::init();
 
+    // strip 0x prefix from private key if present
+    let pk = args.private_key.strip_prefix("0x").unwrap_or(&args.private_key);
+
     // Setup wallet
-    let private_key_bytes = hex::decode(&args.private_key)
+    let private_key_bytes = hex::decode(pk)
         .map_err(|e| std::io::Error::new(std::io::ErrorKind::InvalidInput, e.to_string()))?;
     let private_key_bytes: [u8; 32] = private_key_bytes.try_into().map_err(|_| {
         std::io::Error::new(

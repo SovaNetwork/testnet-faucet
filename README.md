@@ -23,6 +23,10 @@ cd corsa-testnet-faucet
 2. Build the project:
 ```bash
 cargo build --release
+
+# or using justfile
+
+just b
 ```
 
 ## Configuration
@@ -36,6 +40,9 @@ RUST_LOG=info ./target/release/corsa-testnet-faucet \
   --host <HOST> \
   --gas-price-gwei <GAS_PRICE> \
   --gas-limit <GAS_LIMIT>
+
+  # or using justfile
+  just run rpc_url=http://localhost:8545 private_key=0x... tokens_per_request=1000000000000000000 port=5556 host=127.0.0.1 gas_price_gwei=1 gas_limit=21000
 ```
 ### Arguments
 | Argument | Description | Default |
