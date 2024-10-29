@@ -27,7 +27,6 @@ cd corsa-testnet-faucet
 cargo build --release
 
 # or using justfile
-
 just b
 ```
 
