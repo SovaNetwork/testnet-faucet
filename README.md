@@ -18,7 +18,7 @@ The address requesting funds must have a balance of zero else it will be denied 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/OnCorsa/corsa-testnet-faucet.git
+git clone <repository-url>
 cd corsa-testnet-faucet
 ```
 
@@ -27,6 +27,7 @@ cd corsa-testnet-faucet
 cargo build --release
 
 # or using justfile
+
 just b
 ```
 
@@ -64,8 +65,8 @@ docker build -t testnet-faucet .
 # Run the container (replace with your actual values)
 docker run -p 5556:5556 -d \
   testnet-faucet \
-  --rpc-url "http://ec2-34-234-222-77.compute-1.amazonaws.com:8545" \
-  --private-key "0x220146078a274c20958a132392769c437a0614253c2d187e65ad1e319d4c7439" \
+  --rpc-url "YOUR_RPC_URL" \
+  --private-key "YOUR_PRIVATE_KEY" \
   --host "0.0.0.0"
 ```
 
