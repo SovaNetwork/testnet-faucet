@@ -56,6 +56,19 @@ RUST_LOG=info ./target/release/corsa-testnet-faucet \
 | `--gas-price-gwei` | Gas price in gwei | `1` |
 | `--gas-limit` | Gas limit for transactions | `21000` |
 
+## Using Docker 
+```
+# Build the image
+docker build -t testnet-faucet .
+
+# Run the container (replace with your actual values)
+docker run -p 5556:5556 -d \
+  testnet-faucet \
+  --rpc-url "http://ec2-34-234-222-77.compute-1.amazonaws.com:8545" \
+  --private-key "0x220146078a274c20958a132392769c437a0614253c2d187e65ad1e319d4c7439" \
+  --host "0.0.0.0"
+```
+
 ## API Endpoints
 ### Request Tokens
 ```bash
