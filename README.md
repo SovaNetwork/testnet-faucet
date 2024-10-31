@@ -18,7 +18,7 @@ The address requesting funds must have a balance of zero else it will be denied 
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/OnCorsa/corsa-testnet-faucet.git
 cd corsa-testnet-faucet
 ```
 
