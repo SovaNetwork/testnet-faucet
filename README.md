@@ -64,10 +64,13 @@ docker build -t testnet-faucet .
 
 # Run the container (replace with your actual values)
 docker run -p 5556:5556 -d --name testnet-faucet \
+  --network "YOUR_NETWORK_NAME" \
+	--name testnet-faucet \
   testnet-faucet \
   --rpc-url "YOUR_RPC_URL" \
   --private-key "YOUR_PRIVATE_KEY" \
-  --host "0.0.0.0"
+  --host "0.0.0.0" \
+  --tokens-per-request 10000000000000000000
 ```
 
 ## API Endpoints
