@@ -63,7 +63,7 @@ RUST_LOG=info ./target/release/corsa-testnet-faucet \
 docker build -t testnet-faucet .
 
 # Run the container (replace with your actual values)
-docker run -p 5556:5556 -d \
+docker run -p 5556:5556 -d --name testnet-faucet \
   testnet-faucet \
   --rpc-url "YOUR_RPC_URL" \
   --private-key "YOUR_PRIVATE_KEY" \
