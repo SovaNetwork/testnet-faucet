@@ -43,7 +43,7 @@ ENTRYPOINT ["corsa-testnet-faucet"]
 # Default arguments that can be overridden
 CMD ["--rpc-url", "http://localhost:8545", \
      "--private-key", "YOUR_PRIVATE_KEY_HERE", \
-     "--tokens-per-request", "1000000000000000000", \
+     "--tokens-per-request", "10000000000000000000", \
      "--port", "5556", \
      "--host", "0.0.0.0", \
      "--gas-price-gwei", "1", \
