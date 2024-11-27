@@ -1207,28 +1207,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "773648b94d0e5d620f64f280777445740e61fe701025087ec8b57f45c791888b"
 
 [[package]]
-name = "corsa-testnet-faucet"
-version = "0.0.1"
-dependencies = [
- "actix-cors",
- "actix-web",
- "alloy-json-rpc",
- "alloy-primitives",
- "alloy-provider",
- "alloy-rpc-types",
- "alloy-signer",
- "alloy-signer-local",
- "alloy-transport-http",
- "chrono",
- "clap",
- "hex",
- "serde",
- "serde_json",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "cpufeatures"
 version = "0.2.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1870,6 +1848,28 @@ dependencies = [
  "tokio",
  "tower-service",
  "tracing",
+]
+
+[[package]]
+name = "hyperstate-testnet-faucet"
+version = "0.0.1"
+dependencies = [
+ "actix-cors",
+ "actix-web",
+ "alloy-json-rpc",
+ "alloy-primitives",
+ "alloy-provider",
+ "alloy-rpc-types",
+ "alloy-signer",
+ "alloy-signer-local",
+ "alloy-transport-http",
+ "chrono",
+ "clap",
+ "hex",
+ "serde",
+ "serde_json",
+ "tracing",
+ "tracing-subscriber",
 ]
 
 [[package]]
