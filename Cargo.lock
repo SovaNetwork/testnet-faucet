@@ -1851,28 +1851,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "hyperstate-testnet-faucet"
-version = "0.0.1"
-dependencies = [
- "actix-cors",
- "actix-web",
- "alloy-json-rpc",
- "alloy-primitives",
- "alloy-provider",
- "alloy-rpc-types",
- "alloy-signer",
- "alloy-signer-local",
- "alloy-transport-http",
- "chrono",
- "clap",
- "hex",
- "serde",
- "serde_json",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "iana-time-zone"
 version = "0.1.61"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3209,6 +3187,28 @@ dependencies = [
  "once_cell",
  "rustix",
  "windows-sys 0.59.0",
+]
+
+[[package]]
+name = "testnet-faucet"
+version = "0.0.1"
+dependencies = [
+ "actix-cors",
+ "actix-web",
+ "alloy-json-rpc",
+ "alloy-primitives",
+ "alloy-provider",
+ "alloy-rpc-types",
+ "alloy-signer",
+ "alloy-signer-local",
+ "alloy-transport-http",
+ "chrono",
+ "clap",
+ "hex",
+ "serde",
+ "serde_json",
+ "tracing",
+ "tracing-subscriber",
 ]
 
 [[package]]

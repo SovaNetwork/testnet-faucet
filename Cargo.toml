@@ -1,5 +1,5 @@
 [package]
-name = "hyperstate-testnet-faucet"
+name = "testnet-faucet"
 version = "0.0.1"
 edition = "2021"
 rust-version = "1.81"

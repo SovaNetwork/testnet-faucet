@@ -28,7 +28,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy the binary from builder
-COPY --from=builder /usr/src/app/target/release/hyperstate-testnet-faucet /usr/local/bin/
+COPY --from=builder /usr/src/app/target/release/testnet-faucet /usr/local/bin/
 
 # Create a non-root user
 RUN useradd -m -u 1001 faucet
@@ -38,7 +38,7 @@ USER faucet
 EXPOSE 5556
 
 # Set the entrypoint
-ENTRYPOINT ["hyperstate-testnet-faucet"]
+ENTRYPOINT ["testnet-faucet"]
 
 # Default arguments that can be overridden
 CMD ["--rpc-url", "http://localhost:8545", \

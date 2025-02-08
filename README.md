@@ -18,8 +18,8 @@ The address requesting funds must have a balance of zero else it will be denied 
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd hyperstate-testnet-faucet
+git clone https://github.com/SovaNetwork/testnet-faucet.git
+cd testnet-faucet
 ```
 
 2. Build the project:
@@ -34,7 +34,7 @@ just b
 ## Configuration
 The service is configured via command-line arguments:
 ```bash
-RUST_LOG=info ./target/release/hyperstate-testnet-faucet \
+RUST_LOG=info ./target/release/testnet-faucet \
   --rpc-url <RPC_URL> \
   --private-key <PRIVATE_KEY> \
   --tokens-per-request <AMOUNT> \
